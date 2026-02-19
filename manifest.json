@@ -1,0 +1,22 @@
+{
+  "name": "Translator App",
+  "description": "Building a real-time translator app using chrome extensions",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_icon": "hello_extensions.png",
+    "default_title": "Translator App",
+    "default_popup": "./content/popup.html"
+  },
+  "background": {
+    "service_worker": "./background/service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["./content/content.js"]
+    }
+  ],
+  "permissions": ["storage", "activeTab", "scripting", "tabCapture", "offscreen", "tabs"]
+}
